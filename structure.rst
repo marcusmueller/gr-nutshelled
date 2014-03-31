@@ -6,7 +6,6 @@ The GNU Radio approach to signal processing
 
 GNU Radio is a framework to develop Signal Processing flowgraphs that enable users to build highly capable real-world systems that do audio processing, form mobile communication devices, track satellites, do radar and much more, all in computer software.
 
-* We live in a digital world blahblah
 * Signal processing can take place in software, when you convert a recorded signal into a series of numbers. [picture microphone -> soundcard -> 010010, antenna->transceiver->01010] This can be audio, or it can be the reception of a mobile phone, a radar device, or any signal that has a well defined bandwidth and voltage range, depending on your analog to digital conversion device
 *  The same takes place in reverse for example when you listen to music from an MP3 file on your PC or smartphone: A device converts a series of numbers back into an analog signal. These values, so called samples, were calculated from the file, processed in various ways and then transmitted to the digital-to-analog converter, your soundcard. [picture mp3 file -> mathematical function voodoo -> soundcard -> headphones)
 * It's very helpful to imagine the flow of these values through different stages of their processing as a stream that goes through different signal processing blocks. These streams may split, and blocks might unite and combine them to produce a variable number of output streams.
@@ -60,4 +59,11 @@ So what happens now as soon as we have defined our flowgraph and tell GNU Radio 
 
 1. Each of the non-hierarchical blocks are instances of subclasses of gr::block, having a *general_work* or *work* function (general blocks only have a general_work function, whilst sync blocks overloaded that to provide a more comfortable interface with fixed item ratios).
 
+2. GNU Radio asks the source(s) to produce some output. As soon as there is some output, the scheduler calls the downstream block's (general) work function to process that.
+
+3. If there is enough space in the buffers between the blocks, GNU Radio will automatically take care that as many blocks are executed parallely as possible. A source might already be producing samples while the downstream block is still processing the last chunk of work.
+
+4. This goes on until the flow graph is stopped due to being either interrupted externally (a flow graph has a stop() method) or some block signals it's done. 
+
+5. GNU Radio takes care to get the remaining buffer contents through the flowgraph and shuts it down.
 
