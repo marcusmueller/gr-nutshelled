@@ -59,8 +59,8 @@ This digital signal can thus be represented by a sequence of numbers, called
 rate*.
 
 The process of taking a physical quantity (voltage) and converting it to
-digital samples is done by an Analog to Digital Converter (ADC).  The
-complementary device, a Digital to Analog Converter (DAC), takes numbers from a
+digital samples is done by an Analog-to-Digital Converter (ADC).  The
+complementary device, a Digital-to-Analog Converter (DAC), takes numbers from a
 digital computer and converts them to an analog
 
 Now that we have a sequence of numbers, our computer can do anything with it.
