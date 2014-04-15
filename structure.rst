@@ -119,7 +119,7 @@ be processed in a computer.
 .. image:: heterodyne.png
 
 A modular, flow graph based Approach to Digital Signal Processing
------------------------------------------------------------------
+=================================================================
 
 To process digital signals, it is very comfortable to think of the individual
 processing stages (filtering, correction, analysis, detection...) as processing
