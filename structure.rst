@@ -1,6 +1,9 @@
-What is GNU Radio
-=======================
+=========================
+Introduction to GNU Radio
+=========================
 
+What is GNU Radio?
+==================
 GNU Radio is a framework to develop software applications for the processing of
 radio signals.  It enables users to build highly capable real-world systems
 that do audio processing, form mobile communication devices, track satellites,
@@ -19,8 +22,35 @@ Examples include the decoding of aircraft security broadcasts, GSM
 transmission, Digital Radio Mondiale, Radar Applications as well as WiFi
 functionality.
 
+Why would I want GNU Radio?
+---------------------------
+
+Formerly, when developing radio communication devices, the engineer had to develop
+a specific circuit for detection of a specific signal class, design a specific IC
+that would be able to decode or encode that particular transmission and debug these
+using costly equipment.
+
+Software Defined Radio takes the analog signal processing and moves it, as far as
+physically and economically feasible, to processing the radio signal on a computer using algorithms
+in software.
+
+You can of course use your computer-connected transmitter device in a program
+you write from scratch, concatenating algorithms as you need them and moving
+data in and out yourself.  But this quickly becomes cumbersome: Why are you
+reimplementing this standard filter?  Why do you have to take care how you move
+the data between these algorithms?  Wouldn't it be smarter to use highly
+optimized implementations rather than writing things yourself?  And how do you
+get your program to scale well on a multicore architecture for testing but also
+run fast on an embedded device consuming but a few watts of power?
+
+Enter GNU Radio: A framework *dedicated* to writing signal processing applications
+for commodity computers. Wrapping functionality in easy to use, fast to develop and 
+completely reusable blocks, offering excellent scalability, an extensive library of 
+standard algorithms, being heavily optimized for the most common platforms, and 
+coming with a large set of examples to get you started.
+
 Digital Signal Processing
--------------------------------------------
+=========================
 
 As a software framework, GNU Radio works on digitized signals to generate
 communication functionality using general purpose computers.
