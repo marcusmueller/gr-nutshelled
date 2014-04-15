@@ -1,6 +1,3 @@
-What is GNU Radio
-=================
-
 GNU Radio is a framework to develop software applications for the processing of radio signals. It enables users to build highly capable real-world systems that do audio processing, form mobile communication devices, track satellites, do radar and much more, all in computer software.
 
 It is a highly modular, flow graph-oriented framework that comes with a comprehensive set of functionality that can be readily combined to make complex signal processing applications.
@@ -10,11 +7,12 @@ It is by itself not a solution to talk to any hardware, do a specific radio stan
 Examples include the decoding of aircraft security broadcasts, GSM transmission, Digital Radio Mondiale, Radar Applications as well as WiFi functionality.
 
 Digital Signal Processing
--------------------------
+=========================
 
 As a software framework, GNU Radio works on digitized signals to generate communication functionality using general purpose computers.
 
-### A little signal theory
+A little signal theory
+----------------------
 
 Doing signal processing in software requires the signal to be digital. But what is a digital signal?
 
@@ -41,7 +39,8 @@ The process of taking a physical quantity (voltage) and converting it to digital
 
 Now that we have a sequence of numbers, our computer can do anything with it. It might, for example, apply digital filters, compress it, recognize speech or transmit the signal using a digital link.
 
-### Applying Digital Signal Processing to Radio Transmissions
+Applying Digital Signal Processing to Radio Transmissions
+---------------------------------------------------------
 
 The same principles as for sounds can be applied to radio waves:
 
@@ -58,7 +57,7 @@ Using two ADCs, this signal is then again converted to digital samples and can b
 ![image](heterodyne.png)
 
 A modular, flow graph based Approach to Digital Signal Processing
------------------------------------------------------------------
+=================================================================
 
 To process digital signals, it is very comfortable to think of the individual processing stages (filtering, correction, analysis, detection...) as processing blocks, which can be connected using sample flow-indicating arrows:
 
