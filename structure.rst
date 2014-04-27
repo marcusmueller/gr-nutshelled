@@ -110,13 +110,15 @@ using an antenna.
 This electrical signal is then on the carrier frequency, which is usually
 several Mega- or even Gigahertz.
 
-After shifting that signal from that frequency down to zero, we get two signals
-that we can interpret as complex signal.  We call this signal complex baseband. 
-
-Using two ADCs, this signal is then again converted to digital samples and can
-be processed in a computer.
-
-.. image:: heterodyne.png
+Using different types of receivers (e.g. `Superheterodyne Receiver
+<http://en.wikipedia.org/wiki/Superhet>`_, `Direct Conversion
+<http://en.wikipedia.org/wiki/Direct_conversion_receiver>`_, `Low Intermediate
+Frequency Receivers <http://en.wikipedia.org/wiki/Low_IF_receiver>`_), which
+can be acquired commercially as dedicated software radio peripherals, are
+already available to users (e.g. amateur radio receivers connected to sound
+cards) or can be obtained when re-purposing cheaply available consumer digital
+TV receivers (the notorious `rtl-sdr
+<http://sdr.osmocom.org/trac/wiki/rtl-sdr>`_ project).
 
 A modular, flow graph based Approach to Digital Signal Processing
 =================================================================
@@ -136,17 +138,95 @@ GNU Radio is a framework to develop such blocks as well as building and
 controlling graphs of these:
 
 As a GNU Radio user, you can combine existing blocks into a high-level
-flowgraph that does something as complex as receiving LTE modulated signals,
-and GNU Radio will automatically move the signal data between these and cause
-processing of the data when it is ready for processing.
+flowgraph that does something as complex as receiving digitally modulated
+signals and GNU Radio will automatically move the signal data between these and
+cause processing of the data when it is ready for processing.
 
-GNU Radio comes with a large set of existing blocks,
+GNU Radio comes with a large set of existing blocks. Just to give you but a
+small excerpt of what's available in a standard installation, here's some of
+the most popular block categories and a few of their members:
 
-.. image:: blocklist.png
+* Category Waveform Generators
+  * Constant Source
+  * Noise Source
+  * Signal Source
+  * ...
 
-which allow you to do basic mathematical operations, synchronize your reception,
-generate arbitrary signals, convert between different sampling rates and do
-much more.
+* Category Modulators
+  * AM Demod
+  * Continuous Phase Modulation
+  * PSK Mod / Demod
+  * DPSK Mod / Demod
+  * GMSK Mod / Demod
+  * QAM Mod / Demod
+  * WBFM Receive
+  * NBFM Receive
+  * ...
+
+* Category Instrumentation
+  * Constellation Sink
+  * Frequency Sink
+  * Histogram Sink
+  * Number Sink
+  * Time Raster Sink
+  * Time Sink
+  * Waterfall Sink
+  * ...
+
+* Category Math Operators
+  * Abs
+  * Add
+  * Complex Conjugate
+  * Divide
+  * Integrate
+  * Log10
+  * Multiply
+  * RMS 
+  * Subtract
+  * ...
+
+* Category Channel Models
+  * Channel Model
+  * Fading Model
+  * Dynamic Channel Model
+  * Frequency Selective Fading Model
+  * ...
+
+* Category Filters
+  * Band Pass / Reject Filter
+  * Low / High Pass Filter
+  * IIR Filter
+  * Generic Filterbank
+  * Hilbert
+  * Decimating FIR Filter
+  * Root Raised Cosine Filter
+  * FFT Filter
+  * ...
+
+* Category Fourier Analysis
+  * FFT
+  * Log Power FFT
+  * Goertzel
+
+* Category Resamplers
+  * Fractional Resampler
+  * Polyphase Arbitrary Resampler
+  * Rational Resampler
+
+* Category Synchronizers
+  * Clock Recovery MM
+  * Correlate and Sync
+  * Costas Loop
+  * FLL Band-Edge
+  * PLL Freq Det
+  * PN Correlator
+  * Polyphase Clock Sync
+  * ...
+
+
+Using these blocks, many standard tasks, like normalizing signals,
+synchronization, measurements, and visualization can be done by just connecting
+the appropriate block to your signal processing flow graph.
 
 Also, you can write your own blocks, that either combine existing blocks with
 some intelligence to provide new functionality together with some logic, or you
@@ -159,5 +239,3 @@ upon. However, GNU Radio itself is not a software that is ready to do something
 specific -- it's the user's job to build something useful out of it, though it
 already comes with a lot of useful working examples. Think of it as a set of
 building blocks.
-
-
